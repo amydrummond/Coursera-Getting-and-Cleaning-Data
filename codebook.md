@@ -4,13 +4,13 @@
 ### These are the activities performed by the subject during each of the observations ###
 
 | activity           | description                                                    |
-  |--------------------|----------------------------------------------------------------|
-  | LAYING             | observations completed while the subject is laying down        |
-  | SITTING            | observations completed while the subject is sitting            |
-  | STANDING           | observations completed while the subject is standing           |
-  | WALKING            | observations completed while the subject is walking            |
-  | WALKING_DOWNSTAIRS | observations completed while the subject is walking downstairs |
-  | WALKING_UPSTAIRS   | observations completed while the subject is walking upstairs   |
+|--------------------|----------------------------------------------------------------|
+| LAYING             | observations completed while the subject is laying down        |
+| SITTING            | observations completed while the subject is sitting            |
+| STANDING           | observations completed while the subject is standing           |
+| WALKING            | observations completed while the subject is walking            |
+| WALKING_DOWNSTAIRS | observations completed while the subject is walking downstairs |
+| WALKING_UPSTAIRS   | observations completed while the subject is walking upstairs   |
 
   ## Column 2: subject ##
   ### These are numbers of the volunteers that performed the activities ###
