@@ -42,7 +42,7 @@ address <- sub("^https", "http", address)
 data <- read.table(url(address), header = TRUE) 
 View(data)
 ```
-###File description and choices made###
+###Script description and choices made###
 The script creates the nececssary directories for the file file handling. It pulls and extracts the data from the website.
 It imports **features.text**, the file that contains all of the variable names.
 
