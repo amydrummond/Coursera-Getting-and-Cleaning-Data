@@ -183,7 +183,7 @@ i = 1
 counts <- nrow(subset_vars)
 while (i <= counts){
   
-  if (grepl("Acc",subset_vars[i,2])) {
+  if (grepl("Mag",subset_vars[i,2])) {
     subset_vars[i,4] <- paste(subset_vars[i,4], "Magnitude", sep = "")
   }
   
