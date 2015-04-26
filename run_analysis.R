@@ -407,7 +407,7 @@ while (i <= counts){
   i = i + 1
 }
 
-write.table(final_set, file = "./data/cleaning_project/CodebookData.txt", row.name=FALSE)
+write.table(codebook, file = "./data/cleaning_project/CodebookData.txt", row.name=FALSE)
 
 ## ### PROJECT REQUIREMENT 5:
 ##"From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. "
