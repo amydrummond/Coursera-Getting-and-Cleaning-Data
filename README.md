@@ -37,7 +37,7 @@ There is only one script which contains links to all the data and should produce
 The output file also can be accessed with the following code:
 
 ```
-address <- "https://s3.amazonaws.com/coursera-uploads/user-5881afb1e588736e9e2b1e34/973500/asst-3/7ad3c140ec0f11e4ba26e317d0fc6c2b.txt"
+address <- "https://s3.amazonaws.com/coursera-uploads/user-5881afb1e588736e9e2b1e34/973500/asst-3/a23094d0ec2711e4bef8692b0d6b7127.txt"
 address <- sub("^https", "http", address)
 data <- read.table(url(address), header = TRUE) 
 View(data)
@@ -80,6 +80,6 @@ This section also generates the codebook data.
 
 #### PROJECT REQUIREMENT 5: "From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. "  ####
 
-Following Hardley Wickham's *[Tidy Data](http://vita.had.co.nz/papers/tidy-data.pdf)*, I chose to melt the 81 column "wide" data set into a "narrow" data set, adding each of the features as a column. I then grouped the data by activity, subject, and feature (named "variable"), to summarize and produce for each. [This is the result](https://s3.amazonaws.com/coursera-uploads/user-5881afb1e588736e9e2b1e34/973500/asst-3/7ad3c140ec0f11e4ba26e317d0fc6c2b.txt).
+Following Hardley Wickham's *[Tidy Data](http://vita.had.co.nz/papers/tidy-data.pdf)*, I chose to melt the 81 column "wide" data set into a "narrow" data set, adding each of the features as a column. I then grouped the data by activity, subject, and feature (named "variable"), to summarize and produce for each. [This is the result](https://s3.amazonaws.com/coursera-uploads/user-5881afb1e588736e9e2b1e34/973500/asst-3/a23094d0ec2711e4bef8692b0d6b7127.txt).
 
 
