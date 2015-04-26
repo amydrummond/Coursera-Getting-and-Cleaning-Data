@@ -256,8 +256,158 @@ while (i <= subset_cols){
   i <- i + 1
 }
 
+## This section is not necessary for the assignment, but it generates the code book data from above. 
+
+long_name <- as.character(1:79)
+description <- as.character(1:79)
+codebook <- data.frame(long_name, description, stringsAsFactors = FALSE)
 
 
+## This starts the long name, indicating we're using the mean or the standard deviation.  This could have been redone in a cleaner fashion by creating a function.
+
+i = 1
+counts <- nrow(subset_vars)
+while (i <= counts){
+  if (grepl("std",subset_vars[i,2])){
+    codebook[i,1] <- "StandardDeviationOf"
+    codebook[i,2] <- "Standard deviation of"
+  }
+  else {
+    codebook[i,1] <-"MeanOf"
+    codebook[i,2] <-"Mean of"
+  }
+  i = i + 1
+}
+
+
+
+## Is this a body signal or a gravity signal?
+i = 1
+counts <- nrow(subset_vars)
+while (i <= counts){
+  
+  if (grepl("Body",subset_vars[i,2])) {
+    codebook[i,1] <- paste(codebook[i,1], "TheBody", sep = "")
+    codebook[i,2] <- paste(codebook[i,2], "the body")
+  }
+  else {
+    codebook[i,1] <- paste(codebook[i,1], "TheGravity", sep = "")
+    codebook[i,2] <- paste(codebook[i,2], "the gravity")
+  }
+  i = i + 1
+}
+
+## Is this a gyroscope measure or no?
+i = 1
+counts <- nrow(subset_vars)
+while (i <= counts){
+  
+  if (grepl("Gyro",subset_vars[i,2])) {
+    codebook[i,1] <- paste(codebook[i,1], "Gyroscope",  sep = "")
+    codebook[i,2] <- paste(codebook[i,2], "gyroscope")
+  }
+  
+  i = i + 1  
+  
+} 
+
+## Is this a acceleration measure or no?
+i = 1
+counts <- nrow(subset_vars)
+while (i <= counts){
+  
+  if (grepl("Acc",subset_vars[i,2])) {
+    codebook[i,1] <- paste(codebook[i,1], "Acceleration", sep = "")
+    codebook[i,2] <- paste(codebook[i,2], "acceleration")
+  }
+  
+  i = i + 1  
+  
+} 
+
+## Is this a jerk measure or no?
+i = 1
+counts <- nrow(subset_vars)
+while (i <= counts){
+  
+  if (grepl("Jerk",subset_vars[i,2])) {
+    codebook[i,1] <- paste(codebook[i,1], "Jerk", sep = "")
+    codebook[i,2] <- paste(codebook[i,2], "jerk")
+  }
+  
+  i = i + 1  
+  
+} 
+
+## Is this a magnitude measure or no?
+i = 1
+counts <- nrow(subset_vars)
+while (i <= counts){
+  
+  if (grepl("Mag",subset_vars[i,2])) {
+    codebook[i,1] <- paste(codebook[i,1], "Magnitude", sep = "")
+    codebook[i,2] <- paste(codebook[i,2], "magnitude")  
+  }
+  
+  i = i + 1  
+  
+} 
+
+
+## Is this a time domain signal or a frequency domain signal?
+
+i = 1
+counts <- nrow(subset_vars)
+while (i <= counts){
+  first <- substr(subset_vars[i,2],1,1)
+  if(first == 't') {
+    codebook[i,1] <- paste(codebook[i,1], "Time", sep = "")
+    codebook[i,2] <- paste(codebook[i,2], "Time")  
+  }
+  else {
+    codebook[i,1] <- paste(codebook[i,1], "Frequency", sep = "")
+    codebook[i,2] <- paste(codebook[i,2], "frequency")
+  }
+  i = i + 1
+}
+### Everything's a signal
+
+i = 1
+counts <- nrow(subset_vars)
+while (i <= counts){
+  codebook[i,1] <- paste(codebook[i,1], "DomainSignal", sep = "")
+  codebook[i,2] <- paste(codebook[i,2], "domain signal")
+  i = i + 1 
+}
+
+## And, finally the direction
+
+i = 1
+counts <- nrow(subset_vars)
+while (i <= counts){
+  last <- substr(subset_vars[i,2],nchar(subset_vars[i,2]),nchar(subset_vars[i,2]))
+  if(last == 'X') {
+    codebook[i,1] <- paste(codebook[i,1], "InTheXDirection", sep = "")
+    codebook[i,2] <- paste(codebook[i,2], "in the X direction")
+  }
+  else {
+    if(last == 'Y') {
+      codebook[i,1] <- paste(codebook[i,1], "InTheYDirection", sep = "")
+      codebook[i,2] <- paste(codebook[i,2], "in the Y direction")	  
+    }
+    else {
+      if(last == 'Z') {
+        codebook[i,1] <- paste(codebook[i,1], "InTheZDirection", sep = "")
+        codebook[i,2] <- paste(codebook[i,2], "in the Z direction")
+      }
+    }
+    
+  }
+  
+  i = i + 1
+}
+
+write.table(final_set, file = "./data/cleaning_project/CodebookData.txt", row.name=FALSE)
 
 ## ### PROJECT REQUIREMENT 5:
 ##"From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject. "
